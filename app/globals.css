@@ -73,6 +73,9 @@ body,
     }
   }
 
+  .scrollbar-none{
+    scrollbar-width: none;
+  }
   @layer base {
     * {
       @apply border-border;
