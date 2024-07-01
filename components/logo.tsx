@@ -12,7 +12,7 @@ const Logo: React.FC<LogoProps> = ({ className }) => {
     return (<div className={cn("flex items-center",
         className
     )}>
-        <Scale color="#a18cd1" size={30} />
+        <Scale color="#a18cd1" size={40} />
         <span className={cn("ml-2 text-3xl font-bold",
             poppins.className
         )}>

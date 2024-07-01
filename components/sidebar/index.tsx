@@ -7,6 +7,9 @@ import { SidebarToggle } from "./sidebar-toggle";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { MAX_FREE_COUNTS } from "@/constants";
 import { Progress } from "../ui/progress";
+import ThemeToggle from "./themetoggle";
+import SubcriptionButton from "../subcription-button";
+import Navbar from "./navbar";
 
 interface SidebarProps {
     className?: string;
@@ -40,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             </div>
             <div className={cn(
                 "fixed bottom-8 left-4 right-4",
-                "lg:'left-7 lg:right-auto",
+                "lg:left-7 lg:right-auto",
                 isMinimal && "lg:left-3"
             )}>
                 <div className="mb-4 p-4 rounded-lg bg-gray-900">
@@ -52,6 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                 {user?.emailAddresses?.[0].emailAddress}
                             </span>
                         }
+
                     </div>
                     {
                         !isProPlan &&
@@ -62,10 +66,13 @@ const Sidebar: React.FC<SidebarProps> = ({
                             <Progress
                                 value={(userLimitCount / MAX_FREE_COUNTS) * 100}
                                 className="bg-gray-950 h-3"
+                                indicatorClassName="gradient-btn"
                             />
                         </div>
                     }
+                    <SubcriptionButton isPro={isProPlan} />
                 </div>
+                <ThemeToggle />
             </div>
         </div>
     )
